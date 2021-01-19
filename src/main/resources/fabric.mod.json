@@ -1,33 +1,31 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
-  "version": "${version}",
-
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "id": "hitmarker",
+  "version": "1.0a-1.16.2",
+  "name": "HitMarker",
+  "description": "Adds an icon and sound when an enemy is hit",
   "authors": [
-    "Me!"
+    "Tfarcenim"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "sources": "https://github.com/Tfarcenim/Hitmarker"
   },
-
   "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
-
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "tfar.hitmarker.HitMarker"
+    ],
+    "client": [
+      "tfar.hitmarker.HitMarker"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "hitmarker.mixins.json"
   ],
-
   "depends": {
-    "fabricloader": ">=0.7.4",
+    "fabricloader": "\u003e\u003d0.7.4",
     "fabric": "*"
   },
   "suggests": {

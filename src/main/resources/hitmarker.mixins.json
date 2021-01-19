@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "tfar.hitmarker.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "ProjectileEntityAccessor",
+    "ProjectileEntityMixin"
+  ],
+  "client": [
+    "InGameHudMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "refmap": "hitmarker-refmap.json"
+}
