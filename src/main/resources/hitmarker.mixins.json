@@ -2,8 +2,9 @@
   "required": true,
   "minVersion": "0.8",
   "package": "tfar.hitmarker.mixin",
-  "compatibilityLevel": "JAVA_16",
+  "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "LivingEntityMixin",
     "ProjectileEntityAccessor",
     "ProjectileEntityMixin"
   ],
@@ -12,6 +13,5 @@
   ],
   "injectors": {
     "defaultRequire": 1
-  },
-  "refmap": "hitmarker-refmap.json"
+  }
 }

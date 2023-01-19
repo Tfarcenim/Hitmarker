@@ -1,22 +1,18 @@
 package tfar.hitmarker;
 
-import io.netty.buffer.Unpooled;
-import net.fabricmc.fabric.api.network.PacketConsumer;
-import net.fabricmc.fabric.api.network.PacketContext;
-import net.fabricmc.fabric.api.network.ServerSidePacketRegistry;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
+import net.fabricmc.fabric.api.networking.v1.PacketSender;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.multiplayer.ClientPacketListener;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.server.level.ServerPlayer;
 
-public class S2CPlayHitMarker implements PacketConsumer {
+public class S2CPlayHitMarker implements ClientPlayNetworking.PlayChannelHandler{
     public S2CPlayHitMarker() {
     }
 
-    public static void send(ServerPlayer player) {
-        FriendlyByteBuf buf = new FriendlyByteBuf(Unpooled.buffer());
-        ServerSidePacketRegistry.INSTANCE.sendToPlayer(player, PacketHandler.sync_hit, buf);
-    }
-
-    public void accept(PacketContext packetContext, FriendlyByteBuf packetByteBuf) {
-        packetContext.getTaskQueue().execute(HitMarker::playHitMarkerEffect);
+    @Override
+    public void receive(Minecraft client, ClientPacketListener handler, FriendlyByteBuf buf, PacketSender responseSender) {
+        boolean kill = buf.readBoolean();
+        client.execute(() -> HitMarkerClient.playHitMarkerEffect(kill));
     }
 }

@@ -18,7 +18,7 @@
       "tfar.hitmarker.HitMarker"
     ],
     "client": [
-      "tfar.hitmarker.HitMarker"
+      "tfar.hitmarker.HitMarkerClient"
     ]
   },
   "mixins": [

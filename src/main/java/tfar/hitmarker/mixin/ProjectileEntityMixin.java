@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import tfar.hitmarker.S2CPlayHitMarker;
+import tfar.hitmarker.PacketHandler;
 
 @Mixin(Projectile.class)
 abstract class ProjectileEntityMixin extends Entity {
@@ -27,7 +27,7 @@ abstract class ProjectileEntityMixin extends Entity {
 		if (((ProjectileEntityAccessor)this).getOwnerUUID() != null && !this.level.isClientSide) {
 			Entity entity = ((ServerLevel)this.level).getEntity(((ProjectileEntityAccessor)this).getOwnerUUID());
 			if (entity instanceof ServerPlayer) {
-				S2CPlayHitMarker.send((ServerPlayer)entity);
+				PacketHandler.sendSyncHit((ServerPlayer)entity,false);
 			}
 		}
 	}
