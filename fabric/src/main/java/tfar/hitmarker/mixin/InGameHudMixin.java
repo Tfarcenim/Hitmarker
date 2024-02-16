@@ -1,9 +1,8 @@
 package tfar.hitmarker.mixin;
 
-import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
-import net.minecraft.client.gui.GuiComponent;
+import net.minecraft.client.gui.GuiGraphics;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -13,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import tfar.hitmarker.client.HitMarkerClient;
 
 @Mixin(Gui.class)
-public class InGameHudMixin extends GuiComponent {
+public class InGameHudMixin {
 
     @Shadow @Final private Minecraft minecraft;
 
@@ -25,7 +24,7 @@ public class InGameHudMixin extends GuiComponent {
             at = @At("RETURN"),
             method = "renderCrosshair"
     )
-    private void drawHit(PoseStack matrices, CallbackInfo ci) {
-        HitMarkerClient.crosshair(minecraft.gui,matrices,minecraft.getDeltaFrameTime(), this.screenWidth, this.screenHeight);
+    private void drawHit(GuiGraphics guiGraphics, CallbackInfo ci) {
+        HitMarkerClient.crosshair(minecraft.gui,guiGraphics,minecraft.getDeltaFrameTime(), this.screenWidth, this.screenHeight);
     }
 }

@@ -1,8 +1,6 @@
 package tfar.hitmarker;
 
-import net.minecraft.core.Registry;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.core.registries.Registries;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
@@ -11,12 +9,9 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLEnvironment;
-import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.registries.RegisterEvent;
-import tfar.hitmarker.client.HitMarkerClient;
 import tfar.hitmarker.client.HitMarkerClientForge;
 import tfar.hitmarker.network.PacketHandlerForge;
-import tfar.hitmarker.network.S2CHitPacket;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(HitMarker.MODID)
@@ -47,6 +42,6 @@ public class HitMarkerFo {
     }
 
     private void sounds(RegisterEvent e) {
-        e.register(Registry.SOUND_EVENT_REGISTRY, HitMarker.HIT.getLocation(),() -> HitMarker.HIT);
+        e.register(Registries.SOUND_EVENT, HitMarker.HIT.getLocation(),() -> HitMarker.HIT);
     }
 }

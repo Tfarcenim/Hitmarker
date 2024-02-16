@@ -1,10 +1,9 @@
 package tfar.hitmarker.client;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
-import net.minecraft.client.gui.GuiComponent;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.resources.ResourceLocation;
 import tfar.hitmarker.HitMarker;
 
@@ -13,7 +12,7 @@ public class HitMarkerClient {
     static int remainingTicks = 0;
     static boolean kill = false;
 
-    public static void crosshair(Gui gui, PoseStack poseStack, float partialTick, int width, int height) {
+    public static void crosshair(Gui gui, GuiGraphics poseStack, float partialTick, int width, int height) {
         if (!Minecraft.getInstance().options.hideGui && HitMarkerClient.remainingTicks > 0) {
             RenderSystem.enableBlend();
             RenderSystem.defaultBlendFunc();
@@ -22,8 +21,8 @@ public class HitMarkerClient {
             if (HitMarkerClient.kill) {
                 RenderSystem.setShaderColor(1, 0, 0, 1);
             }
-            GuiComponent.blit(poseStack, (width - 11) / 2, (height - 11) / 2, gui.getBlitOffset(), 0.0F, 0.0F, 11, 11, 11, 11);
-            bind(Gui.GUI_ICONS_LOCATION);
+            poseStack.blit(HitMarkerClient.HIT_TEXTURE, (width - 11) / 2, (height - 11) / 2, 0.0F, 0.0F, 11, 11, 11, 11);
+            RenderSystem.setShaderColor(1,1,1,1);//prevent leaks
         }
     }
 

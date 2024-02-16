@@ -1,6 +1,6 @@
 package tfar.hitmarker.client;
 
-import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
 import net.minecraftforge.client.gui.overlay.ForgeGui;
 import net.minecraftforge.client.gui.overlay.IGuiOverlay;
@@ -28,7 +28,7 @@ public class HitMarkerClientForge {
 
     static IGuiOverlay overlay = HitMarkerClientForge::crosshair;
 
-    private static void crosshair(ForgeGui gui, PoseStack poseStack, float partialTick, int width, int height) {
-        HitMarkerClient.crosshair(gui,poseStack,partialTick,width,height);
+    private static void crosshair(ForgeGui gui, GuiGraphics graphics, float partialTick, int width, int height) {
+        HitMarkerClient.crosshair(gui,graphics,partialTick,width,height);
     }
 }
