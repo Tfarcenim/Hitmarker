@@ -9,6 +9,6 @@ public class HitMarkerFabric implements ModInitializer {
     
     @Override
     public void onInitialize() {
-        Registry.register(BuiltInRegistries.SOUND_EVENT, new ResourceLocation(HitMarker.MODID, "hit"), HitMarker.HIT);
+        Registry.register(BuiltInRegistries.SOUND_EVENT, HitMarker.HIT.getLocation(), HitMarker.HIT);
     }
 }

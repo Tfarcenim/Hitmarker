@@ -18,7 +18,7 @@ public class LivingEntityMixin {
         HitMarker.death((LivingEntity)(Object)this,damageSource);
     }
 
-    @Inject(method = "actuallyHurt",at = @At(value = "INVOKE",target = "Lnet/minecraft/world/entity/LivingEntity;gameEvent(Lnet/minecraft/world/level/gameevent/GameEvent;)V"))
+    @Inject(method = "actuallyHurt",at = @At(value = "INVOKE",target = "Lnet/minecraft/world/entity/LivingEntity;gameEvent(Lnet/minecraft/core/Holder;)V"))
     private void onDamaged(DamageSource damageSource, float damageAmount, CallbackInfo ci) {
         HitMarker.hit((LivingEntity)(Object)this,damageSource);
     }
