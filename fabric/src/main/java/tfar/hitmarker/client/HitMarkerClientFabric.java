@@ -9,6 +9,5 @@ public class HitMarkerClientFabric implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         ClientTickEvents.START_CLIENT_TICK.register(m -> HitMarkerClient.clientTick());
-        PacketHandler.registerPackets();
     }
 }
