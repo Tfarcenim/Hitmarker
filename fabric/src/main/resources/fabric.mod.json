@@ -16,7 +16,7 @@
     "environment": "*",
     "entrypoints": {
         "main": [
-            "tfar.hitmarker.HitMarkerFa"
+          "tfar.hitmarker.HitMarkerFabric"
         ],
         "client": [
             "tfar.hitmarker.client.HitMarkerClientFabric"

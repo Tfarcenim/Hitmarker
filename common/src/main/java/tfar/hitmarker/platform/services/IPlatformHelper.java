@@ -1,8 +1,9 @@
 package tfar.hitmarker.platform.services;
 
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.server.level.ServerPlayer;
-import tfar.hitmarker.network.C2SModPacket;
 import tfar.hitmarker.network.S2CModPacket;
 
 public interface IPlatformHelper {
@@ -39,7 +40,7 @@ public interface IPlatformHelper {
         return isDevelopmentEnvironment() ? "development" : "production";
     }
 
-    void sendToClient(S2CModPacket msg, ResourceLocation channel, ServerPlayer player);
-    void sendToServer(C2SModPacket msg, ResourceLocation channel);
+    <MSG extends S2CModPacket> void registerClientPacket(CustomPacketPayload.Type<MSG> type, StreamCodec<RegistryFriendlyByteBuf,MSG> streamCodec);
+    void sendToClient(CustomPacketPayload msg, ServerPlayer player);
 
 }

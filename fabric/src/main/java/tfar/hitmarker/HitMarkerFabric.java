@@ -5,7 +5,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 
-public class HitMarkerFa implements ModInitializer {
+public class HitMarkerFabric implements ModInitializer {
     
     @Override
     public void onInitialize() {

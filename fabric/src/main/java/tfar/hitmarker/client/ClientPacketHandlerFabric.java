@@ -3,7 +3,6 @@ package tfar.hitmarker.client;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.network.FriendlyByteBuf;
 import tfar.hitmarker.network.ClientHandler;
-import tfar.hitmarker.network.ModPacket;
 import tfar.hitmarker.network.S2CHitPacket;
 import tfar.hitmarker.network.S2CModPacket;
 
