@@ -7,6 +7,7 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import tfar.hitmarker.network.PacketHandler;
 import tfar.hitmarker.network.S2CHitPacket;
 import tfar.hitmarker.platform.Services;
 
@@ -20,7 +21,6 @@ public class HitMarker {
     public static final SoundEvent HIT = SoundEvent.createVariableRangeEvent(id("hit"));
     public static final String MOD_NAME = "HitMarker";
     public static final Logger LOG = LoggerFactory.getLogger(MOD_NAME);
-
 
     public static void hit(Entity damaged, DamageSource source) {
         sendToPlayer(false,source);
