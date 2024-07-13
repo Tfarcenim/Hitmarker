@@ -33,6 +33,12 @@ loom {
             ideConfigGenerated(true)
             runDir("run")
         }
+        client2 {
+            client()
+            setConfigName("Fabric Client 2")
+            ideConfigGenerated(true)
+            runDir("run")
+        }
         server {
             server()
             setConfigName("Fabric Server")
